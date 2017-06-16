@@ -38,7 +38,6 @@ public abstract class AbstractTest {
         conf.put(MarkLogicSinkConfig.CONNECTION_URL, "http://localhost:8000/v1/documents");
         conf.put(MarkLogicSinkConfig.CONNECTION_USER, "admin");
         conf.put(MarkLogicSinkConfig.CONNECTION_PASSWORD, "admin");
-        conf.put(MarkLogicSinkConfig.BATCH_SIZE, "100");
         conf.put(MarkLogicSinkConfig.WRITER_IMPL, MarkLogicDefaultWriter.class.getCanonicalName());
         conf.put(MarkLogicSinkConfig.RETRY_BACKOFF_MS, "100");
         conf.put(MarkLogicSinkConfig.MAX_RETRIES, "10");

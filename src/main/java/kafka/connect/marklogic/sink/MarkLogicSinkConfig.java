@@ -2,14 +2,14 @@ package kafka.connect.marklogic.sink;
 
 import java.util.Map;
 
-import kafka.connect.marklogic.MarkLogicDefaultWriter;
-
 import org.apache.kafka.common.config.AbstractConfig;
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.common.config.ConfigDef.Importance;
 import org.apache.kafka.common.config.ConfigDef.Type;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import kafka.connect.marklogic.MarkLogicDefaultWriter;
 
 /**
  * 
@@ -29,10 +29,6 @@ public class MarkLogicSinkConfig extends AbstractConfig {
 	public static final String CONNECTION_PASSWORD = "ml.connection.password";
 	private static final String CONNECTION_PASSWORD_DOC = "ml connection password";
 
-	public static final String BATCH_SIZE = "ml.batch.size";
-	private static final int BATCH_SIZE_DEFAULT = 1000;
-	private static final String BATCH_SIZE_DOC = "ml batch size";
-	
 	public static final String WRITER_IMPL = "ml.writer.impl";
 	private static final String WRITER_IMPL_DEFAULT = MarkLogicDefaultWriter.class.getCanonicalName();
 	private static final String WRITER_IMPL_DOC = "ml writer implementation class name";
@@ -49,7 +45,6 @@ public class MarkLogicSinkConfig extends AbstractConfig {
 			.define(CONNECTION_URL, Type.STRING, Importance.HIGH, CONNECTION_URL_DOC)
 			.define(CONNECTION_USER, Type.STRING, Importance.HIGH, CONNECTION_USER_DOC)
 			.define(CONNECTION_PASSWORD, Type.STRING, Importance.LOW, CONNECTION_PASSWORD_DOC)
-			.define(BATCH_SIZE, Type.INT, BATCH_SIZE_DEFAULT, Importance.MEDIUM, BATCH_SIZE_DOC)
 			.define(MAX_RETRIES, Type.INT, MAX_RETRIES_DEFAULT, Importance.MEDIUM, MAX_RETRIES_DOC)
 			.define(RETRY_BACKOFF_MS, Type.INT, RETRY_BACKOFF_MS_DEFAULT, Importance.MEDIUM, RETRY_BACKOFF_MS_DOC)
 			.define(WRITER_IMPL, Type.STRING, WRITER_IMPL_DEFAULT, Importance.MEDIUM, WRITER_IMPL_DOC);
